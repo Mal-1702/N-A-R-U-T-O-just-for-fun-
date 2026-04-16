@@ -1,24 +1,23 @@
 {
-  "name": "three",
+  "name": "naruto-vfx-project",
   "version": "1.0.0",
+  "description": "Naruto vs Sasuke particle VFX using Three.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mal-1702/N-A-R-U-T-O-just-for-fun-.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mal-1702/N-A-R-U-T-O-just-for-fun-/issues"
-  },
-  "homepage": "https://github.com/Mal-1702/N-A-R-U-T-O-just-for-fun-#readme",
-  "description": "",
   "dependencies": {
     "gsap": "^3.15.0",
-    "three": "^0.184.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
     "vite": "^8.0.8"
   }
 }
