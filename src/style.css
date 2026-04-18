@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════════════════════
+   NARUTO VFX — Global Styles
+   Cinematic dark theme with gradient typography
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Reset ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Three.js Canvas ────────────────────────────────────── */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: block;
+}
+
+/* ── Cinematic Letterbox ────────────────────────────────── */
+.letterbox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 6vh;
+    background: #000;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.letterbox--top {
+    top: 0;
+}
+
+.letterbox--bottom {
+    bottom: 0;
+}
+
+/* ── Overlay ────────────────────────────────────────────── */
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+    transition: opacity 0.5s ease;
+}
+
+/* ── Title ──────────────────────────────────────────────── */
+#title {
+    font-size: clamp(2.8rem, 9vw, 7.5rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #ff6b00 0%,
+        #ff9e2c 18%,
+        #ffffff 42%,
+        #00ccff 68%,
+        #7b2ff7 100%
+    );
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 5s ease infinite;
+    filter: drop-shadow(0 0 40px rgba(0, 170, 255, 0.25));
+    user-select: none;
+}
+
+.vs {
+    display: block;
+    font-size: 0.3em;
+    font-weight: 300;
+    letter-spacing: 0.6em;
+    opacity: 0.45;
+    margin: 0.25em 0;
+}
+
+/* ── Subtitle ───────────────────────────────────────────── */
+#subtitle {
+    font-size: clamp(0.75rem, 2vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    user-select: none;
+}
+
+/* ── Start Button ───────────────────────────────────────── */
+#start-btn {
+    margin-top: 2.5rem;
+    padding: 0.85rem 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+#start-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 170, 255, 0.08),
+        rgba(123, 47, 247, 0.08)
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#start-btn:hover {
+    border-color: rgba(0, 170, 255, 0.45);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 30px rgba(0, 170, 255, 0.12),
+        0 0 60px rgba(123, 47, 247, 0.06);
+}
+
+#start-btn:hover::before {
+    opacity: 1;
+}
+
+#start-btn:active {
+    transform: translateY(0);
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
